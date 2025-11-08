@@ -11,6 +11,12 @@ jobs:
   update-readme:
     name: Update WakaTime Stats
     runs-on: ubuntu-latest
+    
+    # --- THIS IS THE NEW LINE YOU NEED ---
+    permissions:
+      contents: write
+    # -------------------------------------
+
     steps:
       - uses: anmol098/waka-readme-stats@master
         with:
