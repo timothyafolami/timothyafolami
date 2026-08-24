@@ -161,7 +161,7 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
     w, h = 1200, 340
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-        f'role="img" aria-label="Timothy Afolami, Machine Learning Engineer">',
+        f'role="img" aria-label="Timothy Afolami, AI Forward Deployed Engineer">',
         "<defs>",
         '<radialGradient id="glow" cx="0.18" cy="0.12" r="0.85">'
         f'<stop offset="0%" stop-color="{ACCENT}" stop-opacity="0.22"/>'
@@ -184,9 +184,9 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
         # left spine
         '<rect x="64" y="74" width="3" height="132" rx="1.5" fill="url(#spine)"/>',
         svg_text(92, 130, "Timothy Afolami", 58, PAPER, SANS, "700"),
-        svg_text(95, 163, "MACHINE LEARNING ENGINEER", 13.5, ACCENT, MONO, "500"),
-        svg_text(94, 200, "I build systems meant to scale, and take models the rest of the way:", 16.5, MUTED),
-        svg_text(94, 224, "serving, packaging, evaluation, and the parts that break in production.", 16.5, MUTED),
+        svg_text(95, 163, "AI FORWARD DEPLOYED ENGINEER", 13.5, ACCENT, MONO, "500"),
+        svg_text(94, 200, "I build AI systems into someone else\u2019s domain and take them all the way", 16.5, MUTED),
+        svg_text(94, 224, "to production, including the parts that break once real users arrive.", 16.5, MUTED),
         '<rect x="92" y="252" width="330" height="2.5" rx="1.25" fill="url(#rule)"/>',
         svg_text(92, 288, "@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · Go · Node · PyTorch · ONNX · FastAPI", 12.5, FAINT, MONO),
     ]

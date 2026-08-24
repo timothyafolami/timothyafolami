@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg" alt="Timothy Afolami, Machine Learning Engineer" width="100%">
+  <img src="assets/hero.svg" alt="Timothy Afolami, AI Forward Deployed Engineer" width="100%">
 </div>
 
 <div align="center">
@@ -73,10 +73,11 @@
 ## Open to
 
 Collaboration on products meant to scale, and on the unglamorous work that decides whether they
-actually do. Engineering-oriented enough to care about p99 and cold starts, product-oriented
-enough to ask whether the feature earns them.
+actually do. I like being embedded close to the problem: learning a domain well enough to build
+the right thing, then owning it through to production. Engineering-oriented enough to care about
+p99 and cold starts, product-oriented enough to ask whether the feature earns them.
 
-`ML systems` `LLM infrastructure` `backend & APIs` `data pipelines` `technical partnerships`
+`forward deployed work` `ML systems` `LLM infrastructure` `backend & APIs` `technical partnerships`
 
 ## Now
 
@@ -110,6 +111,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-24 August 2026, 11:50 UTC
+24 August 2026, 11:53 UTC
 <!--END:updated--></sub>
 </div>
