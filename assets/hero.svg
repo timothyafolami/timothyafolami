@@ -12,10 +12,10 @@
 <rect x="64" y="74" width="3" height="132" rx="1.5" fill="url(#spine)"/>
 <text x="92" y="130" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#e6edf3">Timothy Afolami</text>
 <text x="95" y="163" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="500" fill="#58a6ff">MACHINE LEARNING ENGINEER</text>
-<text x="94" y="200" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">I take models the rest of the way — serving, packaging, evaluation,</text>
-<text x="94" y="224" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">and the parts that break in production.</text>
+<text x="94" y="200" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">I build systems meant to scale, and take models the rest of the way —</text>
+<text x="94" y="224" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">serving, packaging, evaluation, and the parts that break in production.</text>
 <rect x="92" y="252" width="330" height="2.5" rx="1.25" fill="url(#rule)"/>
-<text x="92" y="288" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#484f58">@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · PyTorch · ONNX · FastAPI</text>
+<text x="92" y="288" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#484f58">@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · Go · Node · PyTorch · ONNX · FastAPI</text>
 <text x="706" y="102" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="700" fill="#e6edf3">13,750</text>
 <text x="706" y="121" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">contributions</text>
 <text x="924" y="102" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">320</text>
