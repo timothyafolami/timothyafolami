@@ -53,13 +53,34 @@
 
 ## Stack
 
+**Ship in production** — Python · Go · Node.js, over PostgreSQL/MySQL in Docker
+**ML & serving** — PyTorch · ONNX Runtime · FastAPI · scikit-learn · LangChain
+**Infrastructure** — Docker · AWS · GCP · GitHub Actions · Redis · Celery
+**Systems lab** — Rust · C++ · Java, where the point is watching one idea change shape as the runtime changes
+
+<details>
+<summary>Language mix by public repo, last 18 months</summary>
+
+<br>
+
 <!--START:languages-->
 `Python           ` ██████████████░░░░░░ 68.4%
 `Jupyter Notebook ` █████░░░░░░░░░░░░░░░ 26.3%
 `HTML             ` █░░░░░░░░░░░░░░░░░░░  5.3%
 <!--END:languages-->
 
-`FastAPI` `ONNX Runtime` `Docker` `AWS` `GCP` `GitHub Actions` `LangChain` `PostgreSQL` `MongoDB` `Streamlit`
+Public repos only, so it undercounts: the six-language systems work lives in a
+lab repo that is still private.
+
+</details>
+
+## Open to
+
+Collaboration on products meant to scale — and on the unglamorous work that decides whether they
+actually do. Engineering-oriented enough to care about p99 and cold starts, product-oriented
+enough to ask whether the feature earns them.
+
+`ML systems` `LLM infrastructure` `backend & APIs` `data pipelines` `technical partnerships`
 
 ## Now
 
@@ -93,6 +114,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-24 August 2026, 11:29 UTC
+24 August 2026, 11:32 UTC
 <!--END:updated--></sub>
 </div>
