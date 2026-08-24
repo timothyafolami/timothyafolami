@@ -29,6 +29,10 @@ ASSETS = ROOT / "assets"
 
 HIDE = {USER, "AOC2025"}
 
+# A "recently pushed" feed was cut deliberately: most of the 13,750 annual
+# contributions land in private repos, so a public-push feed reads months
+# stale and contradicts the activity card directly above it.
+
 # Blue-to-cyan ramp by quantile, with amber reserved for the top 1% of days.
 # The amber isn't decoration: those are the handful of 500+ contribution days,
 # and a single-hue ramp buries them among the merely-busy ones.
@@ -316,53 +320,6 @@ def humanise(dt: str) -> str:
     return f"{y} year{'s' if y > 1 else ''} ago"
 
 
-def readme_summary(repo) -> str:
-    """First real sentence of a repo's own README.
-
-    Most of these repos have no GitHub description set, and a column of
-    'no description yet' reads worse than no column at all. The README almost
-    always opens with a usable one-liner, so borrow that until the description
-    field is filled in properly.
-    """
-    for branch in (repo.get("default_branch") or "main", "main", "master"):
-        text = get(f"https://raw.githubusercontent.com/{USER}/{repo['name']}/{branch}/README.md", raw=True)
-        if not text:
-            continue
-        para: list[str] = []
-        for line in text.splitlines():
-            line = line.strip()
-            skip = not line or line.startswith(("#", "!", "[", "<", "|", "-", "*", "=", "`", ">"))
-            if skip:
-                if para:
-                    break          # paragraph ended
-                continue
-            para.append(line)
-        if not para:
-            break
-        # READMEs hard-wrap, so rejoin the paragraph before taking a sentence.
-        blob = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", " ".join(para))
-        blob = re.sub(r"[*_`]", "", blob)
-        blob = re.sub(r"\s+", " ", blob).strip()
-        sentence = re.split(r"(?<=[.!?])\s+", blob)[0]
-        if len(sentence) > 25:
-            return sentence
-        return blob
-    
-    return ""
-
-
-def block_recent(repos, limit: int = 4) -> str:
-    rows = ["| Repository | What it is | Last push |", "|---|---|---|"]
-    for r in repos[:limit]:
-        desc = (r["description"] or "").strip() or readme_summary(r)
-        desc = desc or "—"
-        if len(desc) > 95:
-            desc = desc[:92].rstrip(" .,;:") + "…"
-        lang = f"`{r['language']}` " if r["language"] else ""
-        rows.append(f"| {lang}[{r['name']}]({r['html_url']}) | {desc} | {humanise(r['pushed_at'])} |")
-    return "\n".join(rows)
-
-
 def block_languages(repos) -> str:
     now = datetime.now(timezone.utc)
     recent = [
@@ -379,24 +336,6 @@ def block_languages(repos) -> str:
         filled = round(pct / 5)
         lines.append(f"`{lang:<17}` {'█' * filled}{'░' * (20 - filled)} {pct:4.1f}%")
     return "\n".join(lines)
-
-
-def block_pypi() -> str:
-    """Rendered as a table so it sits flush with the hand-written work categories."""
-    rows = ["| Package | Release | What it is |", "|---|---|---|"]
-    found = False
-    for pkg in PYPI_PACKAGES:
-        data = get(f"https://pypi.org/pypi/{pkg}/json")
-        if not data:
-            continue
-        found = True
-        info = data["info"]
-        rows.append(
-            f"| **[{pkg}](https://pypi.org/project/{pkg}/)** | `v{info['version']}` · "
-            f"{len(data.get('releases', {}))} releases · {info['license'] or 'see repo'} | "
-            f"{info['summary']} |"
-        )
-    return "\n".join(rows) if found else "_PyPI unavailable at build time._"
 
 
 # --------------------------------------------------------------------------- main
@@ -427,13 +366,11 @@ def main() -> int:
     write_activity_svg(contrib)
 
     blocks = {
-        "recent": block_recent(repos),
         "languages": block_languages(repos),
-        "pypi": block_pypi(),
         "streak": (
-            f"**{contrib['total']:,}** contributions in the past year · "
-            f"**{contrib['active']} of {contrib['span']}** days active · "
-            f"**{contrib['longest']}-day** longest streak"
+            f"<sub>**{contrib['total']:,}** contributions · "
+            f"**{contrib['active']}/{contrib['span']}** days active · "
+            f"**{contrib['longest']}-day** longest streak</sub>"
             if contrib else "_Contribution data unavailable._"
         ),
         "updated": datetime.now(timezone.utc).strftime("%d %B %Y, %H:%M UTC"),
