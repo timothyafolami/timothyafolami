@@ -78,7 +78,7 @@ def fetch_contributions() -> dict:
 
     Deliberately unauthenticated: this returns exactly what an anonymous visitor
     sees, which is the number the README should claim. It also means CI needs no
-    user-scoped token — the default GITHUB_TOKEN would under-report here.
+    user-scoped token, and the default GITHUB_TOKEN would under-report here.
     """
     html = get(f"https://github.com/users/{USER}/contributions", raw=True)
     if not html:
@@ -161,7 +161,7 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
     w, h = 1200, 340
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-        f'role="img" aria-label="Timothy Afolami — Machine Learning Engineer">',
+        f'role="img" aria-label="Timothy Afolami, Machine Learning Engineer">',
         "<defs>",
         '<radialGradient id="glow" cx="0.18" cy="0.12" r="0.85">'
         f'<stop offset="0%" stop-color="{ACCENT}" stop-opacity="0.22"/>'
@@ -185,7 +185,7 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
         '<rect x="64" y="74" width="3" height="132" rx="1.5" fill="url(#spine)"/>',
         svg_text(92, 130, "Timothy Afolami", 58, PAPER, SANS, "700"),
         svg_text(95, 163, "MACHINE LEARNING ENGINEER", 13.5, ACCENT, MONO, "500"),
-        svg_text(94, 200, "I build systems meant to scale, and take models the rest of the way —", 16.5, MUTED),
+        svg_text(94, 200, "I build systems meant to scale, and take models the rest of the way:", 16.5, MUTED),
         svg_text(94, 224, "serving, packaging, evaluation, and the parts that break in production.", 16.5, MUTED),
         '<rect x="92" y="252" width="330" height="2.5" rx="1.25" fill="url(#rule)"/>',
         svg_text(92, 288, "@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · Go · Node · PyTorch · ONNX · FastAPI", 12.5, FAINT, MONO),
@@ -291,7 +291,7 @@ def write_activity_svg(contrib) -> None:
             out.append(svg_text(x, grid_top - 10, d.strftime("%b").upper(), 10, FAINT, MONO, "500"))
 
     ly = grid_top + 7 * step + 14
-    out.append(svg_text(pad, ly + 10, f"amber marks your busiest days — {peak_cut:,}+ contributions", 10.5, FAINT, MONO))
+    out.append(svg_text(pad, ly + 10, f"amber marks the busiest days, {peak_cut:,}+ contributions", 10.5, FAINT, MONO))
     lx = w - pad - 5 * (cell - 3) - 74
     out.append(svg_text(lx - 8, ly + 10, "less", 10, FAINT, MONO, "400", "end"))
     for i, colour in enumerate(LEVELS):
@@ -335,7 +335,7 @@ def block_languages(repos, token) -> str:
     """Bytes written per language across every public repo.
 
     Two corrections make this honest. Jupyter Notebook is excluded because
-    .ipynb bytes are mostly base64-encoded output images — one repo here scores
+    .ipynb bytes are mostly base64-encoded output images, and one repo here scores
     67 MB that way, none of it code. And repos carrying a committed virtualenv
     are skipped outright rather than crediting me with NumPy's C.
     """
@@ -359,7 +359,7 @@ def block_languages(repos, token) -> str:
         filled = round(pct / 5)
         size = f"{n/1e6:.1f} MB" if n >= 1e6 else f"{n/1e3:.0f} KB"
         lines.append(f"`{lang:<11}` {'█' * filled}{'░' * (20 - filled)} {pct:5.1f}%  <sub>{size}</sub>")
-    note = "<sub>By bytes across public repos. Notebooks excluded — `.ipynb` size is mostly embedded output images, not code."
+    note = "<sub>By bytes across public repos. Notebooks excluded, since `.ipynb` size is mostly embedded output images rather than code."
     if skipped:
         note += f" {skipped} repo{'s' if skipped > 1 else ''} with a committed virtualenv skipped."
     return "\n".join(lines) + "\n\n" + note + "</sub>"
