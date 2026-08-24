@@ -320,22 +320,49 @@ def humanise(dt: str) -> str:
     return f"{y} year{'s' if y > 1 else ''} ago"
 
 
-def block_languages(repos) -> str:
-    now = datetime.now(timezone.utc)
-    recent = [
-        r for r in repos
-        if r["language"]
-        and (now - datetime.strptime(r["pushed_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).days
-        <= LANG_WINDOW_DAYS
-    ]
-    counts = Counter(r["language"] for r in (recent or repos))
-    total = sum(counts.values()) or 1
+# Languages I actually write. A whitelist rather than a blocklist, because
+# GitHub attributes vendored code to whoever committed it.
+WRITTEN = {
+    "Python", "Go", "Rust", "Java", "C++", "JavaScript",
+    "TypeScript", "Shell", "HTML", "CSS", "SQL", "PLpgSQL",
+}
+# Tcl and Cython in a Python repo mean a committed virtualenv: the tally would
+# then measure someone else's C extensions, not anything written here.
+VENDORED_TELLS = {"Tcl", "Cython"}
+
+
+def block_languages(repos, token) -> str:
+    """Bytes written per language across every public repo.
+
+    Two corrections make this honest. Jupyter Notebook is excluded because
+    .ipynb bytes are mostly base64-encoded output images — one repo here scores
+    67 MB that way, none of it code. And repos carrying a committed virtualenv
+    are skipped outright rather than crediting me with NumPy's C.
+    """
+    totals: Counter = Counter()
+    skipped = 0
+    for r in repos:
+        data = get(f"https://api.github.com/repos/{USER}/{r['name']}/languages", token)
+        if not data:
+            continue
+        if VENDORED_TELLS & data.keys():
+            skipped += 1
+            continue
+        totals.update({k: v for k, v in data.items() if k in WRITTEN})
+    if not totals:
+        return "_Language data unavailable at build time._"
+
+    grand = sum(totals.values())
     lines = []
-    for lang, n in counts.most_common(5):
-        pct = n / total * 100
+    for lang, n in totals.most_common(6):
+        pct = n / grand * 100
         filled = round(pct / 5)
-        lines.append(f"`{lang:<17}` {'█' * filled}{'░' * (20 - filled)} {pct:4.1f}%")
-    return "\n".join(lines)
+        size = f"{n/1e6:.1f} MB" if n >= 1e6 else f"{n/1e3:.0f} KB"
+        lines.append(f"`{lang:<11}` {'█' * filled}{'░' * (20 - filled)} {pct:5.1f}%  <sub>{size}</sub>")
+    note = "<sub>By bytes across public repos. Notebooks excluded — `.ipynb` size is mostly embedded output images, not code."
+    if skipped:
+        note += f" {skipped} repo{'s' if skipped > 1 else ''} with a committed virtualenv skipped."
+    return "\n".join(lines) + "\n\n" + note + "</sub>"
 
 
 # --------------------------------------------------------------------------- main
@@ -366,7 +393,7 @@ def main() -> int:
     write_activity_svg(contrib)
 
     blocks = {
-        "languages": block_languages(repos),
+        "languages": block_languages(repos, token),
         "streak": (
             f"<sub>**{contrib['total']:,}** contributions · "
             f"**{contrib['active']}/{contrib['span']}** days active · "
