@@ -29,6 +29,10 @@ ASSETS = ROOT / "assets"
 
 HIDE = {USER, "AOC2025"}
 
+# A "recently pushed" feed was cut deliberately: most of the 13,750 annual
+# contributions land in private repos, so a public-push feed reads months
+# stale and contradicts the activity card directly above it.
+
 # Blue-to-cyan ramp by quantile, with amber reserved for the top 1% of days.
 # The amber isn't decoration: those are the handful of 500+ contribution days,
 # and a single-hue ramp buries them among the merely-busy ones.
@@ -74,7 +78,7 @@ def fetch_contributions() -> dict:
 
     Deliberately unauthenticated: this returns exactly what an anonymous visitor
     sees, which is the number the README should claim. It also means CI needs no
-    user-scoped token — the default GITHUB_TOKEN would under-report here.
+    user-scoped token, and the default GITHUB_TOKEN would under-report here.
     """
     html = get(f"https://github.com/users/{USER}/contributions", raw=True)
     if not html:
@@ -157,7 +161,7 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
     w, h = 1200, 340
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-        f'role="img" aria-label="Timothy Afolami — Machine Learning Engineer">',
+        f'role="img" aria-label="Timothy Afolami, AI Forward Deployed Engineer">',
         "<defs>",
         '<radialGradient id="glow" cx="0.18" cy="0.12" r="0.85">'
         f'<stop offset="0%" stop-color="{ACCENT}" stop-opacity="0.22"/>'
@@ -180,11 +184,11 @@ def write_hero_svg(repos, user, releases, contrib) -> None:
         # left spine
         '<rect x="64" y="74" width="3" height="132" rx="1.5" fill="url(#spine)"/>',
         svg_text(92, 130, "Timothy Afolami", 58, PAPER, SANS, "700"),
-        svg_text(95, 163, "MACHINE LEARNING ENGINEER", 13.5, ACCENT, MONO, "500"),
-        svg_text(94, 200, "I take models the rest of the way — serving, packaging, evaluation,", 16.5, MUTED),
-        svg_text(94, 224, "and the parts that break in production.", 16.5, MUTED),
+        svg_text(95, 163, "AI FORWARD DEPLOYED ENGINEER", 13.5, ACCENT, MONO, "500"),
+        svg_text(94, 200, "I build AI systems into someone else\u2019s domain and take them all the way", 16.5, MUTED),
+        svg_text(94, 224, "to production, including the parts that break once real users arrive.", 16.5, MUTED),
         '<rect x="92" y="252" width="330" height="2.5" rx="1.25" fill="url(#rule)"/>',
-        svg_text(92, 288, "@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · PyTorch · ONNX · FastAPI", 12.5, FAINT, MONO),
+        svg_text(92, 288, "@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · Go · Node · PyTorch · ONNX · FastAPI", 12.5, FAINT, MONO),
     ]
 
     # stat block, two columns of three, right side
@@ -287,7 +291,7 @@ def write_activity_svg(contrib) -> None:
             out.append(svg_text(x, grid_top - 10, d.strftime("%b").upper(), 10, FAINT, MONO, "500"))
 
     ly = grid_top + 7 * step + 14
-    out.append(svg_text(pad, ly + 10, f"amber marks your busiest days — {peak_cut:,}+ contributions", 10.5, FAINT, MONO))
+    out.append(svg_text(pad, ly + 10, f"amber marks the busiest days, {peak_cut:,}+ contributions", 10.5, FAINT, MONO))
     lx = w - pad - 5 * (cell - 3) - 74
     out.append(svg_text(lx - 8, ly + 10, "less", 10, FAINT, MONO, "400", "end"))
     for i, colour in enumerate(LEVELS):
@@ -316,87 +320,49 @@ def humanise(dt: str) -> str:
     return f"{y} year{'s' if y > 1 else ''} ago"
 
 
-def readme_summary(repo) -> str:
-    """First real sentence of a repo's own README.
+# Languages I actually write. A whitelist rather than a blocklist, because
+# GitHub attributes vendored code to whoever committed it.
+WRITTEN = {
+    "Python", "Go", "Rust", "Java", "C++", "JavaScript",
+    "TypeScript", "Shell", "HTML", "CSS", "SQL", "PLpgSQL",
+}
+# Tcl and Cython in a Python repo mean a committed virtualenv: the tally would
+# then measure someone else's C extensions, not anything written here.
+VENDORED_TELLS = {"Tcl", "Cython"}
 
-    Most of these repos have no GitHub description set, and a column of
-    'no description yet' reads worse than no column at all. The README almost
-    always opens with a usable one-liner, so borrow that until the description
-    field is filled in properly.
+
+def block_languages(repos, token) -> str:
+    """Bytes written per language across every public repo.
+
+    Two corrections make this honest. Jupyter Notebook is excluded because
+    .ipynb bytes are mostly base64-encoded output images, and one repo here scores
+    67 MB that way, none of it code. And repos carrying a committed virtualenv
+    are skipped outright rather than crediting me with NumPy's C.
     """
-    for branch in (repo.get("default_branch") or "main", "main", "master"):
-        text = get(f"https://raw.githubusercontent.com/{USER}/{repo['name']}/{branch}/README.md", raw=True)
-        if not text:
-            continue
-        para: list[str] = []
-        for line in text.splitlines():
-            line = line.strip()
-            skip = not line or line.startswith(("#", "!", "[", "<", "|", "-", "*", "=", "`", ">"))
-            if skip:
-                if para:
-                    break          # paragraph ended
-                continue
-            para.append(line)
-        if not para:
-            break
-        # READMEs hard-wrap, so rejoin the paragraph before taking a sentence.
-        blob = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", " ".join(para))
-        blob = re.sub(r"[*_`]", "", blob)
-        blob = re.sub(r"\s+", " ", blob).strip()
-        sentence = re.split(r"(?<=[.!?])\s+", blob)[0]
-        if len(sentence) > 25:
-            return sentence
-        return blob
-    
-    return ""
-
-
-def block_recent(repos, limit: int = 4) -> str:
-    rows = ["| Repository | What it is | Last push |", "|---|---|---|"]
-    for r in repos[:limit]:
-        desc = (r["description"] or "").strip() or readme_summary(r)
-        desc = desc or "—"
-        if len(desc) > 95:
-            desc = desc[:92].rstrip(" .,;:") + "…"
-        lang = f"`{r['language']}` " if r["language"] else ""
-        rows.append(f"| {lang}[{r['name']}]({r['html_url']}) | {desc} | {humanise(r['pushed_at'])} |")
-    return "\n".join(rows)
-
-
-def block_languages(repos) -> str:
-    now = datetime.now(timezone.utc)
-    recent = [
-        r for r in repos
-        if r["language"]
-        and (now - datetime.strptime(r["pushed_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)).days
-        <= LANG_WINDOW_DAYS
-    ]
-    counts = Counter(r["language"] for r in (recent or repos))
-    total = sum(counts.values()) or 1
-    lines = []
-    for lang, n in counts.most_common(5):
-        pct = n / total * 100
-        filled = round(pct / 5)
-        lines.append(f"`{lang:<17}` {'█' * filled}{'░' * (20 - filled)} {pct:4.1f}%")
-    return "\n".join(lines)
-
-
-def block_pypi() -> str:
-    """Rendered as a table so it sits flush with the hand-written work categories."""
-    rows = ["| Package | Release | What it is |", "|---|---|---|"]
-    found = False
-    for pkg in PYPI_PACKAGES:
-        data = get(f"https://pypi.org/pypi/{pkg}/json")
+    totals: Counter = Counter()
+    skipped = 0
+    for r in repos:
+        data = get(f"https://api.github.com/repos/{USER}/{r['name']}/languages", token)
         if not data:
             continue
-        found = True
-        info = data["info"]
-        rows.append(
-            f"| **[{pkg}](https://pypi.org/project/{pkg}/)** | `v{info['version']}` · "
-            f"{len(data.get('releases', {}))} releases · {info['license'] or 'see repo'} | "
-            f"{info['summary']} |"
-        )
-    return "\n".join(rows) if found else "_PyPI unavailable at build time._"
+        if VENDORED_TELLS & data.keys():
+            skipped += 1
+            continue
+        totals.update({k: v for k, v in data.items() if k in WRITTEN})
+    if not totals:
+        return "_Language data unavailable at build time._"
+
+    grand = sum(totals.values())
+    lines = []
+    for lang, n in totals.most_common(6):
+        pct = n / grand * 100
+        filled = round(pct / 5)
+        size = f"{n/1e6:.1f} MB" if n >= 1e6 else f"{n/1e3:.0f} KB"
+        lines.append(f"`{lang:<11}` {'█' * filled}{'░' * (20 - filled)} {pct:5.1f}%  <sub>{size}</sub>")
+    note = "<sub>By bytes across public repos. Notebooks excluded, since `.ipynb` size is mostly embedded output images rather than code."
+    if skipped:
+        note += f" {skipped} repo{'s' if skipped > 1 else ''} with a committed virtualenv skipped."
+    return "\n".join(lines) + "\n\n" + note + "</sub>"
 
 
 # --------------------------------------------------------------------------- main
@@ -427,13 +393,11 @@ def main() -> int:
     write_activity_svg(contrib)
 
     blocks = {
-        "recent": block_recent(repos),
-        "languages": block_languages(repos),
-        "pypi": block_pypi(),
+        "languages": block_languages(repos, token),
         "streak": (
-            f"**{contrib['total']:,}** contributions in the past year · "
-            f"**{contrib['active']} of {contrib['span']}** days active · "
-            f"**{contrib['longest']}-day** longest streak"
+            f"<sub>**{contrib['total']:,}** contributions · "
+            f"**{contrib['active']}/{contrib['span']}** days active · "
+            f"**{contrib['longest']}-day** longest streak</sub>"
             if contrib else "_Contribution data unavailable._"
         ),
         "updated": datetime.now(timezone.utc).strftime("%d %B %Y, %H:%M UTC"),
