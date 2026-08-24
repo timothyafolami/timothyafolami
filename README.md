@@ -13,6 +13,7 @@
 - 📦 **[markitup-py](https://github.com/timothyafolami/MarkItUp-py)** — Markdown → themed DOCX/PDF/HTML. A deterministic pipeline, not an LLM rebuilding the document each time. <br>&nbsp;&nbsp;&nbsp;<sub>`published on PyPI` `MIT` `CI on every push`</sub>
 - 🌱 **[bean-lesion-classification](https://github.com/timothyafolami/bean-lesion-classification)** — a model shipped as a system: architectures compared on accuracy *and* latency, then served. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `ONNX` `FastAPI` `React` `Docker`</sub>
 - 🛡️ **[PowerShell detection](https://github.com/timothyafolami/Powershell-Malicious-Code-Detection)** — recall-first security ML that ships ranked analyst queues instead of pretending in one threshold. <br>&nbsp;&nbsp;&nbsp;<sub>`scikit-learn` `deobfuscation` `pseudo-labels`</sub>
+- 🔬 **[software-engineering-practice](https://github.com/timothyafolami/software-engineering-practice)** — ten layers from cache behaviour to inference economics, the same idea built in six languages to see what each runtime hides. <br>&nbsp;&nbsp;&nbsp;<sub>`Python` `Go` `Rust` `Java` `C++` `Node`</sub>
 - ⚡ **[Torque-Ripple-AI](https://github.com/timothyafolami/Torque-Ripple-AI)** — physics-informed residual learning small enough to sit inside a real-time control loop. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `EV PMSM` `feedforward`</sub>
 
 ## Activity
@@ -58,21 +59,16 @@
 **Infrastructure** — Docker · AWS · GCP · GitHub Actions · Redis · Celery
 **Systems lab** — Rust · C++ · Java, where the point is watching one idea change shape as the runtime changes
 
-<details>
-<summary>Language mix by public repo, last 18 months</summary>
-
-<br>
-
 <!--START:languages-->
-`Python           ` ██████████████░░░░░░ 68.4%
-`Jupyter Notebook ` █████░░░░░░░░░░░░░░░ 26.3%
-`HTML             ` █░░░░░░░░░░░░░░░░░░░  5.3%
+`Python     ` █████████████░░░░░░░  62.7%  <sub>5.0 MB</sub>
+`JavaScript ` ██░░░░░░░░░░░░░░░░░░   8.0%  <sub>643 KB</sub>
+`Go         ` █░░░░░░░░░░░░░░░░░░░   7.3%  <sub>588 KB</sub>
+`Java       ` █░░░░░░░░░░░░░░░░░░░   6.1%  <sub>488 KB</sub>
+`Rust       ` █░░░░░░░░░░░░░░░░░░░   5.6%  <sub>452 KB</sub>
+`C++        ` █░░░░░░░░░░░░░░░░░░░   5.3%  <sub>428 KB</sub>
+
+<sub>By bytes across public repos. Notebooks excluded — `.ipynb` size is mostly embedded output images, not code. 2 repos with a committed virtualenv skipped.</sub>
 <!--END:languages-->
-
-Public repos only, so it undercounts: the six-language systems work lives in a
-lab repo that is still private.
-
-</details>
 
 ## Open to
 
@@ -84,9 +80,9 @@ enough to ask whether the feature earns them.
 
 ## Now
 
-Working through a ten-layer systems engineering lab — cache behaviour and concurrency at the
-bottom, distributed failure and inference economics at the top. Every experiment starts with a
-written prediction, so the measurement can prove me wrong.
+Deep in the systems layers — concurrency, distributed failure, inference economics — with every
+experiment opening on a written prediction, so the measurement gets a fair chance to prove me
+wrong. Alongside it: LLM agent systems and evaluation that isn't vibes.
 
 <details>
 <summary>How this page works</summary>
@@ -114,6 +110,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-24 August 2026, 11:32 UTC
+24 August 2026, 11:45 UTC
 <!--END:updated--></sub>
 </div>

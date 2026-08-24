@@ -13,6 +13,7 @@
 - 📦 **[markitup-py](https://github.com/timothyafolami/MarkItUp-py)** — Markdown → themed DOCX/PDF/HTML. A deterministic pipeline, not an LLM rebuilding the document each time. <br>&nbsp;&nbsp;&nbsp;<sub>`published on PyPI` `MIT` `CI on every push`</sub>
 - 🌱 **[bean-lesion-classification](https://github.com/timothyafolami/bean-lesion-classification)** — a model shipped as a system: architectures compared on accuracy *and* latency, then served. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `ONNX` `FastAPI` `React` `Docker`</sub>
 - 🛡️ **[PowerShell detection](https://github.com/timothyafolami/Powershell-Malicious-Code-Detection)** — recall-first security ML that ships ranked analyst queues instead of pretending in one threshold. <br>&nbsp;&nbsp;&nbsp;<sub>`scikit-learn` `deobfuscation` `pseudo-labels`</sub>
+- 🔬 **[software-engineering-practice](https://github.com/timothyafolami/software-engineering-practice)** — ten layers from cache behaviour to inference economics, the same idea built in six languages to see what each runtime hides. <br>&nbsp;&nbsp;&nbsp;<sub>`Python` `Go` `Rust` `Java` `C++` `Node`</sub>
 - ⚡ **[Torque-Ripple-AI](https://github.com/timothyafolami/Torque-Ripple-AI)** — physics-informed residual learning small enough to sit inside a real-time control loop. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `EV PMSM` `feedforward`</sub>
 
 ## Activity
@@ -57,18 +58,8 @@
 **Infrastructure** — Docker · AWS · GCP · GitHub Actions · Redis · Celery
 **Systems lab** — Rust · C++ · Java, where the point is watching one idea change shape as the runtime changes
 
-<details>
-<summary>Language mix by public repo, last 18 months</summary>
-
-<br>
-
 <!--START:languages-->
 <!--END:languages-->
-
-Public repos only, so it undercounts: the six-language systems work lives in a
-lab repo that is still private.
-
-</details>
 
 ## Open to
 
@@ -80,9 +71,9 @@ enough to ask whether the feature earns them.
 
 ## Now
 
-Working through a ten-layer systems engineering lab — cache behaviour and concurrency at the
-bottom, distributed failure and inference economics at the top. Every experiment starts with a
-written prediction, so the measurement can prove me wrong.
+Deep in the systems layers — concurrency, distributed failure, inference economics — with every
+experiment opening on a written prediction, so the measurement gets a fair chance to prove me
+wrong. Alongside it: LLM agent systems and evaluation that isn't vibes.
 
 <details>
 <summary>How this page works</summary>
