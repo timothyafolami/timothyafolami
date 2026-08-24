@@ -26,7 +26,6 @@ If you only open one thing, make it the first.
 </div>
 
 <!--START:streak-->
-**13,748** contributions in the past year · **319 of 366** days active · **136-day** longest streak
 <!--END:streak-->
 
 Both cards are SVGs rendered by [`scripts/build_readme.py`](scripts/build_readme.py) from the
@@ -39,12 +38,6 @@ the merely busy.
 ### Recently pushed
 
 <!--START:recent-->
-| Repository | What it is | Last push |
-|---|---|---|
-| `Python` [MarkItUp-py](https://github.com/timothyafolami/MarkItUp-py) | The reverse of Microsoft's MarkItDown: feed it Markdown, get back clean, well-designed .docx… | 1 month ago |
-| `HTML` [MarkItDown-UI](https://github.com/timothyafolami/MarkItDown-UI) | A sleek glass-morphism web interface for Microsoft's MarkItDown — convert documents to Markd… | 2 months ago |
-| `Python` [Powershell-Malicious-Code-Detection](https://github.com/timothyafolami/Powershell-Malicious-Code-Detection) | Recall-first PowerShell detection pipeline for large corpora, including partially labeled an… | 4 months ago |
-| `Python` [msg_data_extractor](https://github.com/timothyafolami/msg_data_extractor) | Processes Outlook .msg files from a local folder tree, extracts image attachments, and write… | 5 months ago |
 <!--END:recent-->
 
 ---
@@ -54,9 +47,6 @@ the merely busy.
 ### Published packages
 
 <!--START:pypi-->
-| Package | Release | What it is |
-|---|---|---|
-| **[markitup-py](https://pypi.org/project/markitup-py/)** | `v0.4.1` · 4 releases · MIT | The reverse of MarkItDown: turn Markdown into clean, themeable DOCX and PDF documents. |
 <!--END:pypi-->
 
 ### ML systems
@@ -92,9 +82,6 @@ the merely busy.
 ## What I write <sub>(last 18 months)</sub>
 
 <!--START:languages-->
-`Python           ` ██████████████░░░░░░ 68.4%
-`Jupyter Notebook ` █████░░░░░░░░░░░░░░░ 26.3%
-`HTML             ` █░░░░░░░░░░░░░░░░░░░  5.3%
 <!--END:languages-->
 
 **Serving & infra** — FastAPI · ONNX Runtime · Docker · AWS · Google Cloud · GitHub Actions
@@ -125,7 +112,5 @@ survives a spreadsheet.
   <sub>Open to interesting problems in ML systems, LLM infrastructure, and applied AI.</sub>
   <br>
   <sub>Prose written by hand · activity, packages and languages rebuilt daily
-  <!--START:updated-->
-24 August 2026, 10:47 UTC
-<!--END:updated--> · <a href="scripts/build_readme.py">see how</a></sub>
+  <!--START:updated--><!--END:updated--> · <a href="scripts/build_readme.py">see how</a></sub>
 </div>

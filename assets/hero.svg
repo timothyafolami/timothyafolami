@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Timothy Afolami — Machine Learning Engineer">
+<defs>
+<radialGradient id="glow" cx="0.18" cy="0.12" r="0.85"><stop offset="0%" stop-color="#58a6ff" stop-opacity="0.22"/><stop offset="45%" stop-color="#58a6ff" stop-opacity="0.06"/><stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/></radialGradient>
+<linearGradient id="rule" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4fc3e8"/><stop offset="55%" stop-color="#58a6ff"/><stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/></linearGradient>
+<linearGradient id="spine" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4fc3e8"/><stop offset="100%" stop-color="#58a6ff" stop-opacity="0.15"/></linearGradient>
+<pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0 L0 0 0 34" fill="none" stroke="#21262d" stroke-opacity="0.5"/></pattern>
+</defs>
+<rect width="1200" height="340" rx="14" fill="#0d1117"/>
+<rect width="1200" height="340" rx="14" fill="url(#grid)"/>
+<rect width="1200" height="340" rx="14" fill="url(#glow)"/>
+<rect x="0.5" y="0.5" width="1199" height="339" rx="14" fill="none" stroke="#21262d"/>
+<rect x="64" y="74" width="3" height="132" rx="1.5" fill="url(#spine)"/>
+<text x="92" y="130" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#e6edf3">Timothy Afolami</text>
+<text x="95" y="163" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="500" fill="#58a6ff">MACHINE LEARNING ENGINEER</text>
+<text x="94" y="200" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">I take models the rest of the way — serving, packaging, evaluation,</text>
+<text x="94" y="224" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#8b949e">and the parts that break in production.</text>
+<rect x="92" y="252" width="330" height="2.5" rx="1.25" fill="url(#rule)"/>
+<text x="92" y="288" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="400" fill="#484f58">@PeepalyticsAIdev   ·   Nigeria, UTC+1   ·   Python · PyTorch · ONNX · FastAPI</text>
+<text x="706" y="102" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" font-weight="700" fill="#e6edf3">13,748</text>
+<text x="706" y="121" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">contributions</text>
+<text x="924" y="102" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">319</text>
+<text x="924" y="121" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">of 366 days active</text>
+<text x="706" y="164" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">136</text>
+<text x="706" y="183" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">day longest streak</text>
+<text x="924" y="164" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">87</text>
+<text x="924" y="183" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">original repos</text>
+<text x="706" y="226" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">4</text>
+<text x="706" y="245" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">PyPI releases</text>
+<text x="924" y="226" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" fill="#e6edf3">4</text>
+<text x="924" y="245" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#484f58">years building</text>
+<rect x="898" y="74" width="1" height="172" fill="#21262d"/>
+<rect x="706" y="124" width="410" height="1" fill="#21262d"/>
+<rect x="706" y="186" width="410" height="1" fill="#21262d"/>
+</svg>
