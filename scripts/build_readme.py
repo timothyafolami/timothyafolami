@@ -8,6 +8,7 @@ host that can disappear.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -365,6 +366,24 @@ def block_languages(repos, token) -> str:
     return "\n".join(lines) + "\n\n" + note + "</sub>"
 
 
+def cache_bust(text: str) -> str:
+    """Append a content hash to each generated image reference.
+
+    GitHub proxies README images through camo, which caches on the URL. Rewriting
+    a file in place leaves the URL identical, so camo keeps serving the old bytes
+    and the card looks frozen even though the repo is current. A hash in the query
+    string changes the URL exactly when the content changes: fresh bytes get a new
+    cache key, unchanged bytes keep the old one and stay cached.
+    """
+    for name in ("hero.svg", "activity.svg"):
+        path = ASSETS / name
+        if not path.exists():
+            continue
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()[:10]
+        text = text.replace(f"assets/{name}", f"assets/{name}?v={digest}")
+    return text
+
+
 # --------------------------------------------------------------------------- main
 
 
@@ -404,6 +423,7 @@ def main() -> int:
     }
 
     text = TEMPLATE.read_text(encoding="utf-8")
+    text = cache_bust(text)
     for key, value in blocks.items():
         pattern = re.compile(rf"(<!--START:{key}-->).*?(<!--END:{key}-->)", re.DOTALL)
         if not pattern.search(text):
