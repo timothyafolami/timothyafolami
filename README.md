@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=e8a8707cca" alt="Timothy Afolami, AI Forward Deployed Engineer" width="100%">
+  <img src="assets/hero.svg?v=433b533c5f" alt="Timothy Afolami, AI Forward Deployed Engineer" width="100%">
 </div>
 
 <div align="center">
@@ -10,6 +10,7 @@
 
 ## Start here
 
+- 🔮 **[Augury-Ai](https://github.com/timothyafolami/Augury-Ai)**: an AI code reviewer that makes falsifiable claims and then runs the experiment to test them. Findings carry a metric, a number with a unit and the condition it holds under, beside the verdict a test measured. One engine behind a CLI, an MCP server and a web client. <br>&nbsp;&nbsp;&nbsp;<sub>`Python` `MIT` `MCP` `replays real runs, no API key`</sub>
 - 📦 **[markitup-py](https://github.com/timothyafolami/MarkItUp-py)**: Markdown → themed DOCX/PDF/HTML. A deterministic pipeline, not an LLM rebuilding the document each time. <br>&nbsp;&nbsp;&nbsp;<sub>`published on PyPI` `MIT` `CI on every push`</sub>
 - 🌱 **[bean-lesion-classification](https://github.com/timothyafolami/bean-lesion-classification)**: a model shipped as a system, with architectures compared on accuracy *and* latency before serving. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `ONNX` `FastAPI` `React` `Docker`</sub>
 - 🛡️ **[PowerShell detection](https://github.com/timothyafolami/Powershell-Malicious-Code-Detection)**: recall-first security ML that ships ranked analyst queues instead of pretending in one threshold. <br>&nbsp;&nbsp;&nbsp;<sub>`scikit-learn` `deobfuscation` `pseudo-labels`</sub>
@@ -19,11 +20,11 @@
 ## Activity
 
 <div align="center">
-  <img src="assets/activity.svg?v=018d9d0ac6" alt="Contribution activity over the past year" width="100%">
+  <img src="assets/activity.svg?v=4430861f05" alt="Contribution activity over the past year" width="100%">
 </div>
 
 <!--START:streak-->
-<sub>**17,196** contributions · **328/369** days active · **136-day** longest streak</sub>
+<sub>**17,197** contributions · **328/369** days active · **136-day** longest streak</sub>
 <!--END:streak-->
 
 ## More work
@@ -111,6 +112,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-03 September 2026, 11:10 UTC
+03 September 2026, 11:40 UTC
 <!--END:updated--></sub>
 </div>
