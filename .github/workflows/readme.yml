@@ -2,7 +2,9 @@ name: Rebuild README
 
 on:
   schedule:
-    - cron: "17 5 * * *"      # daily, 05:17 UTC
+    # Every six hours. GitHub's cron is best-effort and often runs late, so
+    # four attempts a day keeps the cards close to current even if some slip.
+    - cron: "17 */6 * * *"
   push:
     branches: [main]
     paths:
@@ -14,29 +16,50 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: rebuild-readme
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Generate README
+      - name: Generate README and cards
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/build_readme.py
 
+      - name: Verify the generator produced what the README references
+        run: |
+          missing=0
+          for f in README.md assets/hero.svg assets/activity.svg; do
+            if [[ ! -s "$f" ]]; then
+              echo "::error::$f is missing or empty after the build"
+              missing=1
+            fi
+          done
+          exit $missing
+
       - name: Commit if changed
         run: |
-          if [[ -z "$(git status --porcelain README.md assets/stats.svg)" ]]; then
-            echo "No changes."
+          # Stage everything rather than naming files. A previous version listed
+          # assets/stats.svg explicitly; that file was later renamed to hero.svg
+          # and the workflow then failed on `git add` for ten consecutive days
+          # while the generator itself kept succeeding.
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
             exit 0
           fi
+          echo "Changes staged:"
+          git diff --cached --name-only | sed 's/^/  /'
           git config user.name  "readme-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/stats.svg
           git commit -m "chore: rebuild README from live data"
           git push
