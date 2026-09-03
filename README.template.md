@@ -10,6 +10,7 @@
 
 ## Start here
 
+- 🔮 **[Augury-Ai](https://github.com/timothyafolami/Augury-Ai)**: an AI code reviewer that makes falsifiable claims and then runs the experiment to test them. Findings carry a metric, a number with a unit and the condition it holds under, beside the verdict a test measured. One engine behind a CLI, an MCP server and a web client. <br>&nbsp;&nbsp;&nbsp;<sub>`Python` `MIT` `MCP` `replays real runs, no API key`</sub>
 - 📦 **[markitup-py](https://github.com/timothyafolami/MarkItUp-py)**: Markdown → themed DOCX/PDF/HTML. A deterministic pipeline, not an LLM rebuilding the document each time. <br>&nbsp;&nbsp;&nbsp;<sub>`published on PyPI` `MIT` `CI on every push`</sub>
 - 🌱 **[bean-lesion-classification](https://github.com/timothyafolami/bean-lesion-classification)**: a model shipped as a system, with architectures compared on accuracy *and* latency before serving. <br>&nbsp;&nbsp;&nbsp;<sub>`PyTorch` `ONNX` `FastAPI` `React` `Docker`</sub>
 - 🛡️ **[PowerShell detection](https://github.com/timothyafolami/Powershell-Malicious-Code-Detection)**: recall-first security ML that ships ranked analyst queues instead of pretending in one threshold. <br>&nbsp;&nbsp;&nbsp;<sub>`scikit-learn` `deobfuscation` `pseudo-labels`</sub>
