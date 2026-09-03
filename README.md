@@ -23,7 +23,7 @@
 </div>
 
 <!--START:streak-->
-<sub>**13,750** contributions · **320/366** days active · **136-day** longest streak</sub>
+<sub>**16,973** contributions · **328/369** days active · **136-day** longest streak</sub>
 <!--END:streak-->
 
 ## More work
@@ -60,12 +60,12 @@
 **Systems lab**: Rust · C++ · Java, where the point is watching one idea change shape as the runtime changes
 
 <!--START:languages-->
-`Python     ` █████████████░░░░░░░  62.7%  <sub>5.0 MB</sub>
-`JavaScript ` ██░░░░░░░░░░░░░░░░░░   8.0%  <sub>643 KB</sub>
-`Go         ` █░░░░░░░░░░░░░░░░░░░   7.3%  <sub>588 KB</sub>
-`Java       ` █░░░░░░░░░░░░░░░░░░░   6.1%  <sub>488 KB</sub>
-`Rust       ` █░░░░░░░░░░░░░░░░░░░   5.6%  <sub>452 KB</sub>
-`C++        ` █░░░░░░░░░░░░░░░░░░░   5.3%  <sub>428 KB</sub>
+`Python     ` █████████████░░░░░░░  66.7%  <sub>6.4 MB</sub>
+`JavaScript ` █░░░░░░░░░░░░░░░░░░░   6.7%  <sub>643 KB</sub>
+`Go         ` █░░░░░░░░░░░░░░░░░░░   6.2%  <sub>593 KB</sub>
+`Java       ` █░░░░░░░░░░░░░░░░░░░   5.1%  <sub>488 KB</sub>
+`Rust       ` █░░░░░░░░░░░░░░░░░░░   4.7%  <sub>452 KB</sub>
+`C++        ` █░░░░░░░░░░░░░░░░░░░   4.5%  <sub>428 KB</sub>
 
 <sub>By bytes across public repos. Notebooks excluded, since `.ipynb` size is mostly embedded output images rather than code. 2 repos with a committed virtualenv skipped.</sub>
 <!--END:languages-->
@@ -111,6 +111,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-24 August 2026, 11:53 UTC
+03 September 2026, 05:27 UTC
 <!--END:updated--></sub>
 </div>
