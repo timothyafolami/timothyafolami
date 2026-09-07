@@ -4,15 +4,15 @@
 </defs>
 <rect width="1112" height="408" rx="14" fill="#0d1117"/>
 <rect x="0.5" y="0.5" width="1111" height="407" rx="14" fill="none" stroke="#21262d"/>
-<text x="26" y="40" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#e6edf3">17,671</text>
+<text x="26" y="40" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#e6edf3">17,682</text>
 <text x="141.64" y="40" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="400" fill="#8b949e">contributions in the past year</text>
-<text x="1086" y="30" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#8b949e">327 of 365 days active</text>
+<text x="1086" y="30" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#8b949e">327 of 366 days active</text>
 <text x="1086" y="48" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#8b949e">136-day longest streak</text>
 <rect x="26" y="92.0" width="1060" height="1" fill="#21262d" fill-opacity="0.7"/>
 <rect x="26" y="136.0" width="1060" height="1" fill="#21262d" fill-opacity="0.7"/>
 <rect x="26" y="180.0" width="1060" height="1" fill="#21262d" fill-opacity="0.7"/>
-<polygon points="26,180 26.0,179.0 114.3,179.0 202.7,178.4 291.0,178.0 379.3,175.0 467.7,172.6 556.0,167.8 644.3,159.3 732.7,158.5 821.0,155.0 909.3,153.4 997.7,92.0 1086.0,169.3 1086,180" fill="url(#area)"/>
-<polyline points="26.0,179.0 114.3,179.0 202.7,178.4 291.0,178.0 379.3,175.0 467.7,172.6 556.0,167.8 644.3,159.3 732.7,158.5 821.0,155.0 909.3,153.4 997.7,92.0 1086.0,169.3" fill="none" stroke="#4fc3e8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="26,180 26.0,179.0 114.3,179.0 202.7,178.4 291.0,178.0 379.3,175.0 467.7,172.6 556.0,167.8 644.3,159.3 732.7,158.5 821.0,155.0 909.3,153.4 997.7,92.0 1086.0,169.2 1086,180" fill="url(#area)"/>
+<polyline points="26.0,179.0 114.3,179.0 202.7,178.4 291.0,178.0 379.3,175.0 467.7,172.6 556.0,167.8 644.3,159.3 732.7,158.5 821.0,155.0 909.3,153.4 997.7,92.0 1086.0,169.2" fill="none" stroke="#4fc3e8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="997.7" cy="92.0" r="4.5" fill="#f0a24e"/>
 <text x="997.6666666666666" y="79.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" font-weight="700" fill="#f0a24e">6,980</text>
 <text x="26" y="78" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="500" fill="#484f58">MONTHLY VOLUME  ·  BUSIEST MONTH MARKED</text>
@@ -393,7 +393,8 @@
 <rect x="1046" y="308" width="17" height="17" rx="3.5" fill="#4fc3e8"/>
 <rect x="1046" y="328" width="17" height="17" rx="3.5" fill="#4fc3e8"/>
 <rect x="1046" y="348" width="17" height="17" rx="3.5" fill="#1c3557"/>
-<rect x="1066" y="228" width="17" height="17" rx="3.5" fill="#1c3557"/>
+<rect x="1066" y="228" width="17" height="17" rx="3.5" fill="#22558f"/>
+<rect x="1066" y="248" width="17" height="17" rx="3.5" fill="#161b22"/>
 <text x="26" y="392" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" font-weight="400" fill="#484f58">amber marks the busiest days, 701+ contributions</text>
 <text x="934" y="392" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="400" fill="#484f58">less</text>
 <rect x="942" y="382" width="11" height="11" rx="2.5" fill="#161b22"/>
