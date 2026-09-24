@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/hero.svg?v=1eb1c5ec28" alt="Timothy Afolami, AI Forward Deployed Engineer" width="100%">
+  <img src="assets/hero.svg?v=a0c9e9e6e0" alt="Timothy Afolami, AI Forward Deployed Engineer" width="100%">
 </div>
 
 <div align="center">
@@ -20,11 +20,11 @@
 ## Activity
 
 <div align="center">
-  <img src="assets/activity.svg?v=b607f7d0a3" alt="Contribution activity over the past year" width="100%">
+  <img src="assets/activity.svg?v=9eecbc56b5" alt="Contribution activity over the past year" width="100%">
 </div>
 
 <!--START:streak-->
-<sub>**18,695** contributions · **328/369** days active · **136-day** longest streak</sub>
+<sub>**18,704** contributions · **328/369** days active · **136-day** longest streak</sub>
 <!--END:streak-->
 
 ## More work
@@ -112,6 +112,6 @@ marks the top 1% of days**, which a single-hue ramp buries among the merely busy
   <a href="mailto:timmyafolami8469@gmail.com">Email</a>
   <br><br>
   <sub>Open to problems in ML systems, LLM infrastructure, and applied AI · rebuilt <!--START:updated-->
-24 September 2026, 17:08 UTC
+24 September 2026, 21:29 UTC
 <!--END:updated--></sub>
 </div>
